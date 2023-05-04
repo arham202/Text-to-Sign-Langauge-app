@@ -135,7 +135,7 @@ class _MyVideoAppState extends State<MyVideoApp> {
                       }
                       _onButtonPressed();
                     },
-                    child: const Text('Show Images'),
+                    child: const Text('Translate'),
                   ),
                   const SizedBox(width: 16.0),
                   ElevatedButton(
