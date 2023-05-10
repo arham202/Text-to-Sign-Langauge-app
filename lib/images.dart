@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
 class MyImageApp extends StatefulWidget {
@@ -71,6 +71,7 @@ class _MyImageAppState extends State<MyImageApp> {
   Widget build(BuildContext context) {
     return
       Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: const Text(
             'Text to Images',
@@ -116,6 +117,10 @@ class _MyImageAppState extends State<MyImageApp> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                        shadowColor: Colors.black,
+                      ),
                       onPressed: () {
                         FocusScopeNode currentFocus = FocusScope.of(context);
                         if (!currentFocus.hasPrimaryFocus) {
@@ -127,6 +132,10 @@ class _MyImageAppState extends State<MyImageApp> {
                     ),
                     const SizedBox(width: 16.0),
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                        shadowColor: Colors.black,
+                      ),
                       onPressed: _isTimerActive ? _onStopPressed : null,
                       child: const Text('Stop'),
                     ),
@@ -148,7 +157,7 @@ class _MyImageAppState extends State<MyImageApp> {
                     return const Text('No images found');
                   },
                 )
-                    : const Text('No more images'),
+                    : const Text(''),
               ),
             ],
           ),

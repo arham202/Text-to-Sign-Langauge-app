@@ -39,6 +39,8 @@ dependencies:
   video_player: ^2.6.1
   chewie: ^1.4.0
   http: ^0.13.5
+  google_fonts: ^4.0.4
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_test:

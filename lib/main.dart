@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'images.dart';
 import 'video.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,26 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Text To Sign Language',
-      theme: ThemeData(
-        primaryColor: Colors.white,
-        accentColor: Colors.black,
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            primary: Colors.white,
-            onPrimary: Colors.black,
-            side: BorderSide(
-              color: Colors.black,
-              width: 2.0,
-            ),
-            elevation: 5,
-            shadowColor: Colors.black,
-          ),
-        ),
-      ),
       home: HomePage(),
       routes: {
-        MyImageApp.routeName: (context) => MyImageApp(),
-        MyVideoApp.routeName: (context) => MyVideoApp(),
+        MyImageApp.routeName: (context) => const MyImageApp(),
+        MyVideoApp.routeName: (context) => const MyVideoApp(),
       },
     );
   }
@@ -52,23 +38,24 @@ class HomePage extends StatelessWidget {
               children: [
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 13),
-                  child: Text('Text To Sign Language',style: TextStyle(
+                  child: Text('Text To Sign Language',style: GoogleFonts.ptSans(
                     fontWeight: FontWeight.bold,
                     fontSize: 36,
+                    color: Colors.black,
                   ),),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: Text('Empower communication for all with the power of sign language video translation.',style: TextStyle(
+                  padding: EdgeInsets.all(25.0),
+                  child: Text('Empower communication for all with the power of sign language video translation.',style: GoogleFonts.ptSans(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                     color: Colors.grey,
                   ),),
                 ),
-                SizedBox(
-                  height: 20,
+                const SizedBox(
+                  height: 35,
                 ),
-                Image.asset('assets/images/Hand.png',width: 250,)
+                SvgPicture.asset('assets/images/Page1.svg',width: 350.0)
               ],
             ),
             Center(
@@ -76,18 +63,17 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 200,
-                height: 80,
+                width: 325,
+                height: 70,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  onPrimary: Colors.black,
-                  side: BorderSide(
+                    backgroundColor: Colors.black,
+                  side: const BorderSide(
                     color: Colors.black,
                     width: 4.0,
                   ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(100),
                     ),
                   elevation: 10,
                   shadowColor: Colors.black,
@@ -95,26 +81,26 @@ class HomePage extends StatelessWidget {
                 onPressed: () {
                     Navigator.pushNamed(context, MyImageApp.routeName);
                   },
-                  child: Text('Finger Spell',style: TextStyle(
+                  child: Text('Finger Spell',style: GoogleFonts.ptSans(
                     fontWeight: FontWeight.bold,
                     fontSize: 28,
                   ),),
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 30),
               SizedBox(
-                width: 200,
-                height: 80,
+                width: 325,
+                height: 70,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Colors.white,
                     onPrimary: Colors.black,
-                    side: BorderSide(
+                    side: const BorderSide(
                       color: Colors.black,
                       width: 4.0,
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(100),
                     ),
                     elevation: 10,
                     shadowColor: Colors.black,
@@ -122,9 +108,9 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(context, MyVideoApp.routeName);
                   },
-                  child: const Text('Video',style: TextStyle(
+                  child:Text('Video',style: GoogleFonts.ptSans(
                     fontWeight: FontWeight.bold,
-                    fontSize: 28,
+                    fontSize: 30,
                   ),),
                 ),
               ),

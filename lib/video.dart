@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyVideoApp extends StatefulWidget {
   static const routeName = '/video';
@@ -86,6 +87,7 @@ class _MyVideoAppState extends State<MyVideoApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
         appBar: AppBar(
           title: const Text(
             'Text to Video',
@@ -128,6 +130,10 @@ class _MyVideoAppState extends State<MyVideoApp> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                        shadowColor: Colors.black,
+                  ),
                     onPressed: () {
                       FocusScopeNode currentFocus = FocusScope.of(context);
                       if (!currentFocus.hasPrimaryFocus) {
@@ -139,6 +145,10 @@ class _MyVideoAppState extends State<MyVideoApp> {
                   ),
                   const SizedBox(width: 16.0),
                   ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                        shadowColor: Colors.black,
+                      ),
                     onPressed: _isTimerActive ? _onStopPressed : null,
                     child: const Text('Stop'),
                   ),
@@ -147,14 +157,18 @@ class _MyVideoAppState extends State<MyVideoApp> {
               SizedBox(
                 height: 80,
               ),
-              Center(
-                child: _currentIndex < _words.length
-                    ? AspectRatio(
-                  aspectRatio: 16/9,
-                  child: VideoPlayer(_controller),
-                )
-                    : const Text('No more videos'),
-              ),
+              ClipOval(
+                child: SizedBox(
+                  width: 425.0,
+                  height: 350.0,
+                  child: _currentIndex < _words.length
+                      ? AspectRatio(
+                    aspectRatio: 1.0,
+                    child: VideoPlayer(_controller),
+                  )
+                      : const Text('No more videos'),
+                ),
+              )
             ],
           ),
         ),
